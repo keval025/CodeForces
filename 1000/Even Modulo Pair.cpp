@@ -20,9 +20,7 @@ int main(){
             }else{
                 odds++;
             }
-        }
-
-        
+        }       
     }
     return 0;
 }
