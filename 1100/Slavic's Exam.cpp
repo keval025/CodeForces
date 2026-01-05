@@ -23,6 +23,7 @@ int main(){
                 s[i] = 'a';
             }
             i++;
+            int cnt = 0;
         }
 
         if(j < t.size()){
