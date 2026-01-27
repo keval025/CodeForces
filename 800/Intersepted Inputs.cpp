@@ -13,20 +13,29 @@ int main() {
             cin >> a[i];
         }
 
-        set<int> st;
+        map<int, int> mp;
         for(int i=0;i<n;i++){
-            st.insert(a[i]);
+            mp[a[i]]++;
         }
 
         int parity = 0;
         int p, q;
         for(int i=0;i<n;i++){
             int k = (n - 2) / a[i];
-            if((n-2) % a[i] == 0 && parity == 0 && st.find(k) != st.end()){
-                parity = 1;
-                p = a[i];
-                q = k;
-                break;
+            if((n-2) % a[i] == 0 && parity == 0 && mp.find(k) != mp.end()){
+                if(k == a[i]){
+                    if(mp[a[i]] >= 2){
+                        parity = 1;
+                        p = a[i];
+                        q = k;
+                        break;
+                    }
+                }else{
+                    parity = 1;
+                    p = a[i];
+                    q = k;
+                    break;
+                }
             }
         }
         cout << p << " " << q << endl;
